@@ -1,0 +1,22 @@
+# Eclipse
+*.classpath
+*.project
+*.settings/
+
+# Compiled class files
+bin/
+
+# Dependencies
+lib/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Temporary Files #
+*.log
+*.tmp
+
+# OS generated files #
+.DS_Store
