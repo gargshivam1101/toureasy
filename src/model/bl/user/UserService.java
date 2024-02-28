@@ -1,4 +1,4 @@
-package bl.user;
+package model.bl.user;
 
 import java.util.ArrayList;
 import java.util.Arrays;

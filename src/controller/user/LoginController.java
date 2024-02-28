@@ -1,6 +1,6 @@
 package controller.user;
 
-import bl.user.UserService;
+import model.bl.user.UserService;
 import model.entity.User;
 
 public class LoginController {
