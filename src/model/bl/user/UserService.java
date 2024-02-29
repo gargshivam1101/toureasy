@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import controller.user.AdminController;
 import controller.user.CustomerController;
 import controller.user.GuideController;
 import model.entity.User;
@@ -17,7 +18,8 @@ public class UserService {
 	static List<User> userList = new ArrayList<>(Arrays.asList(//
 			new User("Shivam", "Garg", LocalDateTime.of(1999, 1, 11, 13, 0), "4387701101", "gs@gmail.com",
 					new ArrayList<>(Arrays.asList(KnownLanguages.ENGLISH, KnownLanguages.PUNJABI)), "pass", Role.GUIDE), //
-			new User("Tu", "Mu", null, "123", "tumu@gmail.com", null, "wc", Role.CUSTOMER)//
+			new User("Tu", "Mu", null, "123", "tumu@gmail.com", null, "pass", Role.CUSTOMER), //
+			new User("S", "G", null, "11111", "admin@gmail.com", null, "pass", Role.ADMINISTRATOR)//
 	));
 
 	public static List<User> getUserList() {
@@ -26,6 +28,15 @@ public class UserService {
 
 	public static void putUserList(User user) {
 		userList.add(user);
+	}
+	
+	public static void removeUserList(User user) {
+		userList.remove(user);
+	}
+	
+	protected static User getUserByEmail(String email) {
+		return userList.stream().filter(u -> email.equalsIgnoreCase(u.getEmail()))
+				.findFirst().orElse(null);
 	}
 
 	public static User login(String email, String password) {
@@ -45,6 +56,8 @@ public class UserService {
 			GuideController.processUserInput(loggedInUser);
 		} else if (Role.CUSTOMER.equals(loggedInUser.getRole())) {
 			CustomerController.processUserInput(loggedInUser);
+		} else if (Role.ADMINISTRATOR.equals(loggedInUser.getRole())) {
+			AdminController.processUserInput(loggedInUser);
 		}
 		return loggedInUser;
 	}
@@ -71,7 +84,6 @@ public class UserService {
 			System.out.println("\t- None");
 		}
 		System.out.println("Role: " + loggedInUser.getRole());
-
 	}
 
 	public static void editProfile(User loggedInUser, String contactNo, List<KnownLanguages> knownLanguages) {

@@ -27,6 +27,7 @@ public class GuideController {
 				String contactNo = UserView.getContactNoInput();
 				List<KnownLanguages> knownLanguages = UserView.getKnownLanguagesInput();
 				UserService.editProfile(loggedInUser, contactNo, knownLanguages);
+				break;
 			default:
 				System.out.println("Invalid!");
 			}

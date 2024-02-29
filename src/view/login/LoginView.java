@@ -2,9 +2,6 @@ package view.login;
 
 import java.util.Scanner;
 
-import controller.user.LoginController;
-import model.entity.User;
-
 public class LoginView {
 
 	public static String getUserNameInput() {

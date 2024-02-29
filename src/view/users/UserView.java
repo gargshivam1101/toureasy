@@ -25,11 +25,10 @@ public class UserView {
 
 	public static List<KnownLanguages> getKnownLanguagesInput() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Known Languages (comma separated): ");
+		System.out.println("Known Languages (space separated): ");
 		String knownLanguagesInp = scanner.nextLine();
 		String[] knownLanguagesStr = knownLanguagesInp.split(" ");
 		ArrayList<String> knownLanguagesSt = new ArrayList<>(Arrays.asList(knownLanguagesStr));
-//		KnownLanguages.fromString("str");
 		List<KnownLanguages> knownLanguages = knownLanguagesSt.stream().map(kl -> KnownLanguages.fromString(kl))
 				.collect(Collectors.toList());
 		return knownLanguages;

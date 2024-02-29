@@ -19,8 +19,5 @@ public class CustomerView {
       int choice = scanner.nextInt();
       
       return choice;
-	}
-
-	
-	
+	}	
 }
