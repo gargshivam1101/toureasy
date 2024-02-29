@@ -1,10 +1,10 @@
 package view.tour;
 
-import model.entity.Review;
-import model.entity.Tour;
-
 import java.util.List;
 import java.util.Scanner;
+
+import model.entity.Review;
+import model.entity.Tour;
 
 public class TourView {
     public static void displayMenu() {
@@ -20,19 +20,19 @@ public class TourView {
     public static void displayAllTours(List<Tour> tours) {
         System.out.println("\n*** All Tours ***");
         for (Tour tour : tours) {
-            System.out.println(tour);
+            System.out.println(tour.toString());
         }
     }
 
     public static void displayTourDetails(Tour tour) {
         System.out.println("\n*** Tour Details ***");
-        System.out.println(tour);
+        System.out.println(tour.toString());
     }
 
     public static void displayTourReviews(List<Review> reviews) {
         System.out.println("\n*** Tour Reviews ***");
         for (Review review : reviews) {
-            System.out.println(review);
+            System.out.println(review.toString());
         }
     }
     public static String promptForTourId() {

@@ -1,6 +1,6 @@
 package model.entity;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import model.enums.KnownLanguages;
@@ -12,7 +12,7 @@ public class User extends Person {
 
 	private Role role;
 
-	public User(String firstName, String lastName, Date dob, String contactNo, String email,
+	public User(String firstName, String lastName, LocalDateTime dob, String contactNo, String email,
 			List<KnownLanguages> knownLanguages, String password, Role role) {
 		super(firstName, lastName, dob, contactNo, email, knownLanguages);
 		this.password = password;

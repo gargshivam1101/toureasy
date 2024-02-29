@@ -1,12 +1,12 @@
 package controller.tour;
 
+import java.util.List;
+import java.util.Scanner;
+
 import model.bl.tour.TourService;
 import model.entity.Review;
 import model.entity.Tour;
 import view.tour.TourView;
-
-import java.util.List;
-import java.util.Scanner;
 
 public class TourController {
 

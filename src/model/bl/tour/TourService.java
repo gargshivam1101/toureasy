@@ -5,7 +5,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import model.entity.*;
+import model.entity.Guide;
+import model.entity.Hotel;
+import model.entity.Person;
+import model.entity.Review;
+import model.entity.Tour;
 import model.enums.KnownLanguages;
 import model.enums.ModeOfTransport;
 

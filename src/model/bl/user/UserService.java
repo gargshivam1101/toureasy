@@ -1,18 +1,23 @@
 package model.bl.user;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import controller.user.CustomerController;
+import controller.user.GuideController;
 import model.entity.User;
+import model.enums.KnownLanguages;
 import model.enums.Role;
 
 public class UserService {
-	static User loggedInUser = null;
 
 	static List<User> userList = new ArrayList<>(Arrays.asList(//
-			new User("Shivam", "Garg", null, "4387791101", "gs@gmail.com", null, "wc", Role.CUSTOMER), //
-			new User("Tushar", "Mukker", null, "12345", "tm@gmail.com", null, "pass", Role.GUIDE)//
+			new User("Shivam", "Garg", LocalDateTime.of(1999, 1, 11, 13, 0), "4387701101", "gs@gmail.com",
+					new ArrayList<>(Arrays.asList(KnownLanguages.ENGLISH, KnownLanguages.PUNJABI)), "pass", Role.GUIDE), //
+			new User("Tu", "Mu", null, "123", "tumu@gmail.com", null, "wc", Role.CUSTOMER)//
 	));
 
 	public static List<User> getUserList() {
@@ -25,19 +30,53 @@ public class UserService {
 
 	public static User login(String email, String password) {
 
-		User lgInUser = getUserList().stream()
+		User loggedInUser = getUserList().stream()
 				.filter(user -> user.getEmail().equals(email) && user.getPassword().equals(password)).findFirst()
 				.orElse(null);
 
-		if (lgInUser == null) {
+		if (loggedInUser == null) {
 			System.out.println("Sorry, you have entered wrong credentials!");
 			return null;
 		}
 
-		loggedInUser = lgInUser;
+		// Authenticated user
+		System.out.println("Welcome " + loggedInUser.getFirstName());
+		if (Role.GUIDE.equals(loggedInUser.getRole())) {
+			GuideController.processUserInput(loggedInUser);
+		} else if (Role.CUSTOMER.equals(loggedInUser.getRole())) {
+			CustomerController.processUserInput(loggedInUser);
+		}
+		return loggedInUser;
+	}
 
-		System.out.println("Welcome " + lgInUser.getFirstName());
-		System.out.println("You have been successfully logged in");
-		return lgInUser;
+	public static void logout() {
+		System.out.println("You have been successfully logged out");
+	}
+
+	public static void showProfile(User loggedInUser) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM yyyy");
+
+		System.out.println("First Name: " + loggedInUser.getFirstName());
+		System.out.println("Last Name: " + loggedInUser.getLastName());
+		System.out.println("Date of Birth: "
+				+ (loggedInUser.getDob() != null ? loggedInUser.getDob().format(formatter) : "Unknown"));
+		System.out.println("Contact Number: " + loggedInUser.getContactNo());
+		System.out.println("Email: " + loggedInUser.getEmail());
+		System.out.println("Known Languages: ");
+		if (loggedInUser.getKnownLanguages() != null) {
+			for (KnownLanguages language : loggedInUser.getKnownLanguages()) {
+				System.out.println("\t- " + language);
+			}
+		} else {
+			System.out.println("\t- None");
+		}
+		System.out.println("Role: " + loggedInUser.getRole());
+
+	}
+
+	public static void editProfile(User loggedInUser, String contactNo, List<KnownLanguages> knownLanguages) {
+		loggedInUser.setContactNo(contactNo);
+		loggedInUser.setKnownLanguages(knownLanguages);
+		System.out.println("The profile information has been updated successfully");
 	}
 }

@@ -1,6 +1,6 @@
 package model.entity;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import model.enums.KnownLanguages;
@@ -9,12 +9,12 @@ public class Person {
 
 	private String firstName;
 	private String lastName;
-	private Date dob;
+	private LocalDateTime dob;
 	private String contactNo;
 	private String email;
 	private List<KnownLanguages> knownLanguages;
 
-	public Person(String firstName, String lastName, Date dob, String contactNo, String email,
+	public Person(String firstName, String lastName, LocalDateTime dob, String contactNo, String email,
 			List<KnownLanguages> knownLanguages) {
 		super();
 		this.firstName = firstName;
@@ -56,14 +56,14 @@ public class Person {
 	/**
 	 * @return the dob
 	 */
-	public Date getDob() {
+	public LocalDateTime getDob() {
 		return dob;
 	}
 
 	/**
 	 * @param dob the dob to set
 	 */
-	public void setDob(Date dob) {
+	public void setDob(LocalDateTime dob) {
 		this.dob = dob;
 	}
 

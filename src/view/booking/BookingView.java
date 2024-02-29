@@ -1,10 +1,12 @@
 package view.booking;
 
-import model.entity.Booking;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
+import java.util.List;
+import java.util.Scanner;
+
+import model.entity.Booking;
 
 public class BookingView {
 
@@ -21,7 +23,7 @@ public class BookingView {
     public void displayAllBookings(List<Booking> bookings) {
         System.out.println("All Bookings:");
         for (Booking booking : bookings) {
-            System.out.println(booking);
+            System.out.println(booking.toString());
         }
     }
 
@@ -40,7 +42,7 @@ public class BookingView {
     public void displayBookingDetails(Booking booking) {
         if (booking != null) {
             System.out.println("Booking Details:");
-            System.out.println(booking);
+            System.out.println(booking.toString());
         } else {
             System.out.println("Booking not found.");
         }

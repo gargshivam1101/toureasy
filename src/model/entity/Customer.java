@@ -1,6 +1,6 @@
 package model.entity;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import model.enums.KnownLanguages;
@@ -10,7 +10,7 @@ public class Customer extends Person {
 
 	private PaymentInfo paymentInfo;
 
-	public Customer(String firstName, String lastName, Date dob, String contactNo, String email,
+	public Customer(String firstName, String lastName, LocalDateTime dob, String contactNo, String email,
 			List<KnownLanguages> knownLanguages, String personalAddress, PaymentInfo paymentInfo) {
 		super(firstName, lastName, dob, contactNo, email, knownLanguages);
 		this.personalAddress = personalAddress;
