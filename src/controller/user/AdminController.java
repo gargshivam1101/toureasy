@@ -40,6 +40,20 @@ public class AdminController {
 				String emailToRemove = AdminView.getEmailInput();
 				AdminService.removeUser(emailToRemove);
 				break;
+			case 5:
+				// view hotels
+				AdminService.showAllHotels();
+				break;
+			case 6:
+				// add hotels
+				break;
+			case 7:
+				AdminService.showAllTours();
+				break;
+			case 8:
+				// will use pre existing guide by asking for email uuid
+				// will use pre existing hotel by hotel id
+				break;
 			default:
 				System.out.println("Invalid!");
 			}

@@ -1,6 +1,12 @@
 package model.entity;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Hotel {
+
+	private static final AtomicInteger count = new AtomicInteger(0);
+
+	private Integer hotelId;
 	private String hotelName;
 	private String hotelAddress;
 	private Person manager;
@@ -11,12 +17,27 @@ public class Hotel {
 	public Hotel(String hotelName, String hotelAddress, Person manager, String cityName, int numberOfAvailableRooms,
 			float price) {
 		super();
+		this.hotelId = count.incrementAndGet();
 		this.hotelName = hotelName;
 		this.hotelAddress = hotelAddress;
 		this.manager = manager;
 		this.cityName = cityName;
 		this.numberOfAvailableRooms = numberOfAvailableRooms;
 		this.price = price;
+	}
+
+	/**
+	 * @return the hotelId
+	 */
+	public Integer getHotelId() {
+		return hotelId;
+	}
+
+	/**
+	 * @param hotelId the hotelId to set
+	 */
+	public void setHotelId(Integer hotelId) {
+		this.hotelId = hotelId;
 	}
 
 	/**
@@ -106,11 +127,10 @@ public class Hotel {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Hotel [hotelName=").append(hotelName).append(", hotelAddress=").append(hotelAddress)
-				.append(", manager=").append(manager).append(", cityName=").append(cityName)
-				.append(", numberOfAvailableRooms=").append(numberOfAvailableRooms).append(", price=").append(price)
-				.append("]");
+		builder.append("Hotel [hotelId=").append(hotelId).append(", hotelName=").append(hotelName)
+				.append(", hotelAddress=").append(hotelAddress).append(", manager=").append(manager)
+				.append(", cityName=").append(cityName).append(", numberOfAvailableRooms=")
+				.append(numberOfAvailableRooms).append(", price=").append(price).append("]");
 		return builder.toString();
 	}
-
 }

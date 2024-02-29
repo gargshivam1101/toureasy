@@ -13,6 +13,7 @@ public class CustomerView {
       System.out.println("2. Edit Profile");
       System.out.println("3. Make a booking");
       System.out.println("4. Edit a booking");
+      System.out.println("111. Access FAQ");
       System.out.println("0. Logout");
       System.out.print("Enter your choice: ");
 
