@@ -11,24 +11,24 @@ import view.users.CustomerView;
 import view.users.UserView;
 
 public class CustomerController {
-
 	public static void processUserInput(User loggedInUser) {
-		Boolean isLoggedIn = true;
+		boolean isLoggedIn = true;
 		while (isLoggedIn) {
 			int choice = CustomerView.showMenuAndChoose(loggedInUser);
 			switch (choice) {
-			case 0:
-				LoginController.logout();
-				isLoggedIn = false;
-				break;
-			case 1:
-				UserService.showProfile(loggedInUser);
-				break;
-			case 2:
-				UserView.promptToEditProfile(loggedInUser);
-				String contactNo = UserView.getContactNoInput();
-				List<KnownLanguages> knownLanguages = UserView.getKnownLanguagesInput();
-				UserService.editProfile(loggedInUser, contactNo, knownLanguages);
+				case 0:
+					LoginController.logout();
+					isLoggedIn = false;
+					break;
+				case 1:
+					UserService.showProfile(loggedInUser);
+					break;
+				case 2:
+					UserView.promptToEditProfile(loggedInUser);
+					String contactNo = UserView.getContactNoInput();
+					List<KnownLanguages> knownLanguages = UserView.getKnownLanguagesInput();
+					UserService.editProfile(loggedInUser, contactNo, knownLanguages);
+					break;
 				case 3:
 					List<Booking> myBookings = CustomerService.getAllMyBookings(loggedInUser);
 					CustomerView.displayAllMyBookings(myBookings);
@@ -48,8 +48,6 @@ public class CustomerController {
 				default:
 					System.out.println("Invalid choice!");
 			}
-
 		}
 	}
-
 }
