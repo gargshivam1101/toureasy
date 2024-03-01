@@ -41,10 +41,6 @@ public class TourService {
 		return tourList;
 	}
 
-<<<<<<< HEAD
-    public static List<Tour> getAllTours() {
-        return tourList;
-    }
 
     public static Tour getTourById(String tourId) {
         return tourList.stream().filter(tour -> tour.getTourId().equals(tourId)).findFirst().orElse(null);
@@ -53,9 +49,5 @@ public class TourService {
     public static void addTour(Tour tour) {
         tourList.add(tour);
     }
-=======
-	public static Tour getTourById(String tourId) {
-		return tourList.stream().filter(tour -> tour.getTourId().equals(tourId)).findFirst().orElse(null);
-	}
->>>>>>> acab5f6bf79d9dc8207afe380c4e7a75addefaa4
+
 }

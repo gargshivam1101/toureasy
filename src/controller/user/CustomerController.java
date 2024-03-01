@@ -14,7 +14,7 @@ public class CustomerController {
 	public static void processUserInput(User loggedInUser) {
 		boolean isLoggedIn = true;
 		while (isLoggedIn) {
-			int choice = CustomerView.showMenuAndChoose(loggedInUser);
+			int choice = CustomerView.showMenuAndChoose();
 			switch (choice) {
 				case 0:
 					LoginController.logout();
