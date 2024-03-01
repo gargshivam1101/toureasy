@@ -9,6 +9,10 @@ bin/
 # Dependencies
 lib/
 
+out/
+
+.idea/
+
 # Package Files #
 *.jar
 *.war
