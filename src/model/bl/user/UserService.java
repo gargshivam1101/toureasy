@@ -19,7 +19,8 @@ public class UserService {
 			new User("Shivam", "Garg", LocalDateTime.of(1999, 1, 11, 13, 0), "4387701101", "gs@gmail.com",
 					new ArrayList<>(Arrays.asList(KnownLanguages.ENGLISH, KnownLanguages.PUNJABI)), "pass", Role.GUIDE), //
 			new User("Tu", "Mu", null, "123", "tumu@gmail.com", null, "pass", Role.CUSTOMER), //
-			new User("S", "G", null, "11111", "admin@gmail.com", null, "pass", Role.ADMINISTRATOR)//
+			new User("S", "G", null, "11111", "admin@gmail.com", null, "pass", Role.ADMINISTRATOR),//
+			new User("Pritam", "S", null, "911", "ps@gmail.com", null, "pass", Role.CUSTOMER) //
 	));
 
 	public static List<User> getUserList() {

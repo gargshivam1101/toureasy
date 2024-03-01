@@ -45,4 +45,8 @@ public class TourService {
     public static Tour getTourById(String tourId) {
         return tourList.stream().filter(tour -> tour.getTourId().equals(tourId)).findFirst().orElse(null);
     }
+
+    public static void addTour(Tour tour) {
+        tourList.add(tour);
+    }
 }

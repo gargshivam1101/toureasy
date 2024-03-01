@@ -1,12 +1,11 @@
 package model.bl.booking;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
+import model.bl.tour.TourService;
 import model.entity.Booking;
+import model.entity.Tour;
 
 public class BookingService {
 
@@ -30,6 +29,28 @@ public class BookingService {
 
     public static List<Booking> getBookingsByTour(String tourId) {
         return bookingList.stream().filter(booking -> booking.getTourID().equals(tourId)).collect(Collectors.toList());
+    }
+
+    public static void createBooking(String customerEmail, String tourId, String status, String paymentStatus) {
+        // Check if the tour exists
+        Tour tour = TourService.getTourById(tourId);
+        if (tour != null) {
+            // Generate a unique booking ID
+            String bookingId = UUID.randomUUID().toString();
+
+            // Get current date and time
+            Date currentDate = new Date();
+
+            // Create a new booking
+            Booking booking = new Booking(bookingId, tourId, customerEmail, currentDate, status, paymentStatus);
+
+            // Add the booking to the list
+            bookingList.add(booking);
+
+            System.out.println("Booking created successfully.");
+        } else {
+            System.out.println("Tour not found. Cannot create booking.");
+        }
     }
 
     public static void updateBooking(String bookingId, String tourId, Date date, String status, String paymentStatus) {

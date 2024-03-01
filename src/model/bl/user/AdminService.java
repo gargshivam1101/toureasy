@@ -3,9 +3,15 @@ package model.bl.user;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import model.bl.tour.TourService;
+import model.entity.Guide;
+import model.entity.Hotel;
+import model.entity.Tour;
 import model.entity.User;
 import model.enums.KnownLanguages;
+import model.enums.ModeOfTransport;
 import model.enums.Role;
+
 
 public class AdminService extends UserService {
 
@@ -27,5 +33,12 @@ public class AdminService extends UserService {
 		User userToRemove = getUserByEmail(email);
 		removeUserList(userToRemove);
 		System.out.println("The user has been removed");
+	}
+
+	public static void addTour(String tourId, String destination, Integer numberOfNights, Hotel hotel,
+							   ModeOfTransport inCityModeOfTransport, Guide guide) {
+		Tour newTour = new Tour(tourId, destination, numberOfNights, hotel, inCityModeOfTransport, guide);
+		TourService.addTour(newTour);
+		System.out.println("The tour has been added");
 	}
 }
