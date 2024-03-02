@@ -107,7 +107,7 @@ public class BookingService {
         }
     }
 
-    private static double calculateBookingAmount() {
+    public static double calculateBookingAmount() {
         double minPrice = 10.0;
         double maxPrice = 100.0;
 

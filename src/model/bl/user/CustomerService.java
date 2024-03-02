@@ -52,22 +52,46 @@ public class CustomerService extends UserService {
 	}
 
 	private static String promptForBillingName() {
-		return "Adam Lord";
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter billing name: ");
+		String input = scanner.nextLine();
+		return input.trim();
 	}
 
 	private static String promptForBillingAddress() {
-		return "123 Main St";
+		 Scanner scanner = new Scanner(System.in);
+		 System.out.print("Enter billing address: ");
+		 String input = scanner.nextLine();
+		 return input.trim();
 	}
 
 	private static PaymentMode promptForPaymentMode() {
-		return PaymentMode.CARD;
+		PaymentMode paymentMode = null;
+		boolean validInput = false;
+		Scanner scanner = new Scanner(System.in);
+
+		do {
+			System.out.print("Choose payment mode (CARD, WALLET): ");
+			String userInput = scanner.nextLine().toUpperCase();
+
+			try {
+				paymentMode = PaymentMode.valueOf(userInput);
+				validInput = true;
+			} catch (IllegalArgumentException e) {
+				System.out.println("Invalid input. Please enter a valid payment mode.");
+			}
+		} while (!validInput);
+
+		return paymentMode;
 	}
 
 	private static String promptForCardDetails() {
-		return "1234-5678-9012-3456"; // Replace with actual user input
+		 Scanner scanner = new Scanner(System.in);
+		 System.out.print("Enter card number: ");
+		 return scanner.nextLine();
 	}
 
-	private static Wallet promptForWalletDetails() {
+	static Wallet promptForWalletDetails() {
 		String walletId = "W001"; // Replace with actual user input or generation logic
 		double walletBalance = 100.0; // Replace with actual user input or initialization
 		return new Wallet(walletId, walletBalance);
