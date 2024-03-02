@@ -78,9 +78,8 @@ public class AdminService extends UserService {
 			List<String> destAttractions, Integer numberOfNights, Integer hotelId, ModeOfTransport modeofTransport,
 			String guideEmail) {
 		Hotel hotel = HotelService.getHotelById(hotelId);
-		User user = UserService.getUserByEmail(guideEmail);
 		Destination destination = new Destination(destinationName, destinationDesc, destAttractions);
-		Guide guide = null; // TODO: wrong
+		Guide guide = GuideService.getGuideByEmail(guideEmail);
 		Tour tour = new Tour(tourId, destination, numberOfNights, hotel, modeofTransport, guide);
 		TourService.putTourList(tour);
 		System.out.println("The tour has been added");

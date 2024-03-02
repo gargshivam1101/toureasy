@@ -4,15 +4,24 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import model.enums.KnownLanguages;
+import model.enums.Role;
 
-public class Customer extends Person {
+public class Customer extends User {
 	private String personalAddress;
 
 	private PaymentInfo paymentInfo;
+	
+	public Customer (User user, String personalAddress, PaymentInfo paymentInfo) {
+		super(user.getFirstName(), user.getLastName(), user.getDob(), user.getContactNo(), user.getEmail(),
+				user.getKnownLanguages(), user.getPassword(), user.getRole());
+		this.personalAddress = personalAddress;
+		this.paymentInfo = paymentInfo;
+	}
 
 	public Customer(String firstName, String lastName, LocalDateTime dob, String contactNo, String email,
-			List<KnownLanguages> knownLanguages, String personalAddress, PaymentInfo paymentInfo) {
-		super(firstName, lastName, dob, contactNo, email, knownLanguages);
+			List<KnownLanguages> knownLanguages, String password, Role role, String personalAddress,
+			PaymentInfo paymentInfo) {
+		super(firstName, lastName, dob, contactNo, email, knownLanguages, password, role);
 		this.personalAddress = personalAddress;
 		this.paymentInfo = paymentInfo;
 	}

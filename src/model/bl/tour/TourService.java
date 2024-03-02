@@ -13,6 +13,7 @@ import model.entity.Review;
 import model.entity.Tour;
 import model.enums.KnownLanguages;
 import model.enums.ModeOfTransport;
+import model.enums.Role;
 
 public class TourService {
 	static List<Tour> tourList = new ArrayList<>(Arrays.asList(//
@@ -22,7 +23,7 @@ public class TourService {
 							100.0F),
 					ModeOfTransport.BUS,
 					new Guide("GuideFirstName", "GuideLastName", null, "987-654-3210", "guide@email.com",
-							Arrays.asList(KnownLanguages.ENGLISH, KnownLanguages.SPANISH), 50.0)),
+							Arrays.asList(KnownLanguages.ENGLISH, KnownLanguages.SPANISH), "pass", Role.GUIDE, 50.0)),
 
 			new Tour("T002", new Destination("Mountain Hoke", "A hike through the beautiful mountains", null), 3,
 					new Hotel("Mountain Lodge", "456 Mountain Rd",
@@ -30,8 +31,9 @@ public class TourService {
 							"Mountains", 30, 120.0F),
 					ModeOfTransport.BUS,
 					new Guide("AnotherGuide", "GuideLastName", null, "123-789-4560", "another.guide@email.com",
-							Arrays.asList(KnownLanguages.FRENCH, KnownLanguages.GERMAN), 60.0))));
+							Arrays.asList(KnownLanguages.FRENCH, KnownLanguages.GERMAN), "pass", Role.GUIDE, 60.0))));
 
+	
 	static List<Review> reviewList = new ArrayList<>(
 			Arrays.asList(new Review("R001", "T001", null, 4, "Great city tour!", null),
 					new Review("R002", "T002", null, 5, "Amazing mountain hike!", null)));
