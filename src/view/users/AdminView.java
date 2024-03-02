@@ -3,6 +3,9 @@ package view.users;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 import model.entity.User;
@@ -121,12 +124,26 @@ public class AdminView {
 		return scanner.nextLine();
 	}
 
-	public static String getDestinationInput() {
+	public static String getDestinationNameInput() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Destination: ");
+		System.out.println("Destination Name: ");
+		return scanner.nextLine();
+	}
+	
+	public static String getDestinationDescInput() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Destination Description: ");
 		return scanner.nextLine();
 	}
 
+	public static List<String> getDestinationAttractionsInput() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Destination Attractions (space separated): ");
+		String attractionsInp = scanner.nextLine();
+		String[] attractionsArr = attractionsInp.split(" ");
+		return new ArrayList<>(Arrays.asList(attractionsArr));
+	}
+	
 	public static Integer getNoOfNightsInput() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Number of Nights: ");

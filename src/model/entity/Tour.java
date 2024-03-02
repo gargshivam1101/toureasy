@@ -4,13 +4,13 @@ import model.enums.ModeOfTransport;
 
 public class Tour {
 	private String tourId;
-	private String destination;
+	private Destination destination;
 	private Integer numberOfNights;
 	private Hotel hotel;
 	private ModeOfTransport inCityModeOfTransport;
 	private Guide guide;
 
-	public Tour(String tourId, String destination, Integer numberOfNights, Hotel hotel,
+	public Tour(String tourId, Destination destination, Integer numberOfNights, Hotel hotel,
 			ModeOfTransport inCityModeOfTransport, Guide guide) {
 		super();
 		this.tourId = tourId;
@@ -38,14 +38,14 @@ public class Tour {
 	/**
 	 * @return the destination
 	 */
-	public String getDestination() {
+	public Destination getDestination() {
 		return destination;
 	}
 
 	/**
 	 * @param destination the destination to set
 	 */
-	public void setDestination(String destination) {
+	public void setDestination(Destination destination) {
 		this.destination = destination;
 	}
 

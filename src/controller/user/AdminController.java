@@ -70,12 +70,15 @@ public class AdminController {
 				// will use pre existing hotel by hotel id
 				AdminView.promptToAddTour();
 				String tourId = AdminView.getTourIdInput();
-				String destination = AdminView.getDestinationInput();
+				String destinationName = AdminView.getDestinationNameInput();
+				String destinationDesc = AdminView.getDestinationDescInput();
+				List<String> destAttractions = AdminView.getDestinationAttractionsInput();
 				Integer numberOfNights = AdminView.getNoOfNightsInput();
 				Integer hotelId = AdminView.getHotelIdInput();
 				ModeOfTransport modeofTransport = AdminView.getModeOfTransportInput();
 				String guideEmail = AdminView.getGuideEmailInput();
-				AdminService.addTour(tourId, destination, numberOfNights, hotelId, modeofTransport, guideEmail);
+				AdminService.addTour(tourId, destinationName, destinationDesc, destAttractions, numberOfNights, hotelId,
+						modeofTransport, guideEmail);
 				break;
 			default:
 				System.out.println("Invalid!");

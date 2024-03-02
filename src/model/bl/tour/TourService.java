@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import model.entity.Destination;
 import model.entity.Guide;
 import model.entity.Hotel;
 import model.entity.Person;
@@ -14,14 +15,16 @@ import model.enums.KnownLanguages;
 import model.enums.ModeOfTransport;
 
 public class TourService {
-	static List<Tour> tourList = new ArrayList<>(Arrays.asList(
-			new Tour("T001", "City Tour", 2, new Hotel("City Hotel", "123 Main St",
-					new Person("John", "Doe", null, "123-456-7890", "john.doe@email.com", null), "City", 50, 100.0F),
+	static List<Tour> tourList = new ArrayList<>(Arrays.asList(//
+			new Tour("T001", new Destination("City Tour", "A tour of the city", null), 2,
+					new Hotel("City Hotel", "123 Main St",
+							new Person("John", "Doe", null, "123-456-7890", "john.doe@email.com", null), "City", 50,
+							100.0F),
 					ModeOfTransport.BUS,
 					new Guide("GuideFirstName", "GuideLastName", null, "987-654-3210", "guide@email.com",
 							Arrays.asList(KnownLanguages.ENGLISH, KnownLanguages.SPANISH), 50.0)),
 
-			new Tour("T002", "Mountain Hike", 3,
+			new Tour("T002", new Destination("Mountain Hoke", "A hike through the beautiful mountains", null), 3,
 					new Hotel("Mountain Lodge", "456 Mountain Rd",
 							new Person("Jane", "Smith", null, "987-654-3210", "jane.smith@email.com", null),
 							"Mountains", 30, 120.0F),
@@ -41,14 +44,14 @@ public class TourService {
 		return tourList;
 	}
 
-    public static void addTour(Tour tour) {
-        tourList.add(tour);
-    }
+	public static void addTour(Tour tour) {
+		tourList.add(tour);
+	}
 
 	public static Tour getTourById(String tourId) {
 		return tourList.stream().filter(tour -> tour.getTourId().equals(tourId)).findFirst().orElse(null);
 	}
-	
+
 	public static void putTourList(Tour tour) {
 		tourList.add(tour);
 	}
