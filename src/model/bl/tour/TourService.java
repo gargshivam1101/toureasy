@@ -41,13 +41,15 @@ public class TourService {
 		return tourList;
 	}
 
-
-    public static Tour getTourById(String tourId) {
-        return tourList.stream().filter(tour -> tour.getTourId().equals(tourId)).findFirst().orElse(null);
-    }
-
     public static void addTour(Tour tour) {
         tourList.add(tour);
     }
 
+	public static Tour getTourById(String tourId) {
+		return tourList.stream().filter(tour -> tour.getTourId().equals(tourId)).findFirst().orElse(null);
+	}
+	
+	public static void putTourList(Tour tour) {
+		tourList.add(tour);
+	}
 }

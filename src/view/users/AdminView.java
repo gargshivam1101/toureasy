@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 import model.entity.User;
+import model.enums.ModeOfTransport;
 import model.enums.Role;
 
 public class AdminView {
@@ -74,5 +75,80 @@ public class AdminView {
 
 	public static void promptToRemoveUser() {
 		System.out.println("Please enter the email of user to be removed");
+	}
+
+	public static void promptToAddHotel() {
+		System.out.println("Please enter the details of the hotel, and it's manager below");
+	}
+	
+	public static String getHotelNameInput() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Hotel Name: ");
+		return scanner.nextLine();
+	}
+
+	public static String getHotelAddressInput() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Hotel Address: ");
+		return scanner.nextLine();
+	}
+
+	public static String getCityNameInput() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("City Name: ");
+		return scanner.nextLine();
+	}
+
+	public static Integer getNoOfRoomsInp() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Number of Rooms: ");
+		return scanner.nextInt();
+	}
+
+	public static Float getPriceInp() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Price: ");
+		return scanner.nextFloat();
+	}
+
+	public static void promptToAddTour() {
+		System.out.println("Please add the details of the tour below");
+	}
+
+	public static String getTourIdInput() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Tour ID: ");
+		return scanner.nextLine();
+	}
+
+	public static String getDestinationInput() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Destination: ");
+		return scanner.nextLine();
+	}
+
+	public static Integer getNoOfNightsInput() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Number of Nights: ");
+		return scanner.nextInt();
+	}
+
+	public static Integer getHotelIdInput() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Hotel ID: ");
+		return scanner.nextInt();
+	}
+
+	public static ModeOfTransport getModeOfTransportInput() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Mode of Transport: ");
+		String inp = scanner.nextLine();
+		return ModeOfTransport.fromString(inp);
+	}
+
+	public static String getGuideEmailInput() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Email of Guide: ");
+		return scanner.nextLine();
 	}
 }

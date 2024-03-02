@@ -9,6 +9,10 @@ import model.entity.Hotel;
 import model.entity.Tour;
 import model.bl.hotel.HotelService;
 import model.bl.tour.TourService;
+import model.entity.Guide;
+import model.entity.Hotel;
+import model.entity.Person;
+import model.entity.Tour;
 import model.entity.User;
 import model.enums.KnownLanguages;
 import model.enums.ModeOfTransport;
@@ -62,5 +66,24 @@ public class AdminService extends UserService {
 			System.out.println("Manager Name: " + h.getManager().getFirstName() + " " + h.getManager().getLastName());
 			System.out.println();
 		});
+	}
+
+	public static void addHotel(String hotelName, String hotelAddress, String cityName, Integer noOfAvailRooms,
+			Float price, String mfirstName, String mlastName, LocalDateTime mdob, String mcontactNo,
+			String memail, List<KnownLanguages> mknownLanguages) {
+		Person manager = new Person(mfirstName, mlastName, mdob, mcontactNo, memail, mknownLanguages);
+		Hotel hotel = new Hotel(hotelName, hotelAddress, manager, cityName, noOfAvailRooms, price);
+		HotelService.putHotelList(hotel);
+		System.out.println("The hotel has been added");
+	}
+
+	public static void addTour(String tourId, String destination, Integer numberOfNights, Integer hotelId,
+			ModeOfTransport modeofTransport, String guideEmail) {
+		Hotel hotel = HotelService.getHotelById(hotelId);
+		User user = UserService.getUserByEmail(guideEmail);
+		Guide guide = null; //TODO: wrong
+		Tour tour = new Tour(tourId, destination, numberOfNights, hotel, modeofTransport, guide);
+		TourService.putTourList(tour);
+		System.out.println("The tour has been added");
 	}
 }
