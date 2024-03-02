@@ -1,10 +1,9 @@
 package view.users;
 
-import model.entity.Booking;
-import model.entity.User;
-
 import java.util.List;
 import java.util.Scanner;
+
+import model.entity.Booking;
 
 public class CustomerView {
 
@@ -45,6 +44,13 @@ public class CustomerView {
         System.out.print("Enter Booking Payment Status: ");
         return scanner.nextLine();
     }
+    
+    public static String promptForSpecialRequest() {
+        System.out.print("Special Request: ");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+    
     public static void displayAllMyBookings(List<Booking> bookings) {
         System.out.println("My Bookings:");
         for (Booking booking : bookings) {

@@ -3,10 +3,6 @@ package model.bl.user;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import model.bl.tour.TourService;
-import model.entity.Guide;
-import model.entity.Hotel;
-import model.entity.Tour;
 import model.bl.hotel.HotelService;
 import model.bl.tour.TourService;
 import model.entity.Guide;

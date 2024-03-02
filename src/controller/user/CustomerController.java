@@ -42,7 +42,8 @@ public class CustomerController {
 					String tourId = CustomerView.promptForTourId();
 					String status = CustomerView.promptForBookingStatus();
 					String paymentStatus = CustomerView.promptForBookingPaymentStatus();
-					CustomerService.createNewBooking(loggedInUser, tourId, status, paymentStatus);
+					String specialRequest = CustomerView.promptForSpecialRequest();
+					CustomerService.createNewBooking(loggedInUser, tourId, status, paymentStatus, specialRequest);
 					System.out.println("Booking created successfully.");
 					break;
 				default:

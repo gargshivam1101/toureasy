@@ -16,7 +16,7 @@ public class CustomerService extends UserService {
         BookingService.cancelBooking(bookingId);
     }
 
-    public static void createNewBooking(User loggedInUser, String tourId, String status, String paymentStatus) {
-        BookingService.createBooking(loggedInUser.getEmail(), tourId, status, paymentStatus);
+    public static void createNewBooking(User loggedInUser, String tourId, String status, String paymentStatus, String specialRequest) {
+        BookingService.createBooking(loggedInUser.getEmail(), tourId, status, paymentStatus, specialRequest);
     }
 }
