@@ -8,6 +8,7 @@ public class Booking {
 	private String customerID;
 	private Date date;
 	private String status;
+	private PaymentInfo paymentInfo;
 	private String paymentStatus;
 	private SpecialRequest specialRequest;
 
@@ -15,8 +16,7 @@ public class Booking {
 		// Default constructor
 	}
 
-	public Booking(String bookingID, String tourID, String customerID, Date date, String status, String paymentStatus,
-			SpecialRequest specialRequest) {
+	public Booking(String bookingID, String tourID, String customerID, Date date, String status, String paymentStatus, PaymentInfo paymentInfo) {
 		super();
 		this.bookingID = bookingID;
 		this.tourID = tourID;
@@ -25,6 +25,7 @@ public class Booking {
 		this.status = status;
 		this.paymentStatus = paymentStatus;
 		this.specialRequest = specialRequest;
+		this.paymentInfo = paymentInfo;
 	}
 
 	public String getBookingID() {
@@ -87,6 +88,14 @@ public class Booking {
 	 */
 	public void setSpecialRequest(SpecialRequest specialRequest) {
 		this.specialRequest = specialRequest;
+	}
+
+	public PaymentInfo getPaymentInfo() {
+		return paymentInfo;
+	}
+
+	public void setPaymentInfo(PaymentInfo paymentInfo) {
+		this.paymentInfo = paymentInfo;
 	}
 
 	@Override
