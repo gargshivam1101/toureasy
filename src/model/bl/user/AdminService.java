@@ -1,10 +1,13 @@
 package model.bl.user;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import model.bl.hotel.HotelService;
 import model.bl.tour.TourService;
+import model.entity.Admin;
 import model.entity.Destination;
 import model.entity.Guide;
 import model.entity.Hotel;
@@ -16,6 +19,13 @@ import model.enums.ModeOfTransport;
 import model.enums.Role;
 
 public class AdminService extends UserService {
+
+	static List<Admin> adminList = new ArrayList<>();
+
+	public static List<Admin> getAdminList() {
+		return getUserList().stream().filter(u -> u.getRole().equals(Role.ADMINISTRATOR))
+				.map(u -> new Admin(u, "Overall", null, 300.0)).collect(Collectors.toList());
+	}
 
 	public static void showAllUsers() {
 		userList.forEach(u -> {
